@@ -7,7 +7,6 @@ const useApiCall = (url, Apilocation) => {
     axios.get(url)
       .then(res => { setData(res.data) })
       .catch(err => { console.log(err) })
-    console.log(Data)
   }, [Apilocation])
   return { Data }
 }
