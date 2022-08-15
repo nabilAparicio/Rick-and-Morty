@@ -1,6 +1,7 @@
-import React from 'react';
-import InputLocation from './InputLocation';
+import React from 'react'
+import InputLocation from './InputLocation'
 
+// eslint-disable-next-line react/prop-types
 const Hero = ({ handleChange, handleLocation }) => {
   return (
     <div className="hero  bg-base-200 p-5">
@@ -24,7 +25,7 @@ const Hero = ({ handleChange, handleLocation }) => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Hero;
+export default Hero

@@ -1,29 +1,28 @@
-import { useState, useEffect } from 'react'
+/* eslint-disable react/react-in-jsx-scope */
+import { useState } from 'react'
 import useApiCall from './hooks/useApiCall'
 import Location from './components/Location'
-import InputLocation from './components/InputLocation'
 import ResidentInfo from './components/ResidentInfo'
 import Hero from './components/Hero'
 
-function App() {
-  let [location, setLocation] = useState('')
-  let [Apilocation, setApiLocation] = useState()
+function App () {
+  const [location, setLocation] = useState('')
+  const [Apilocation, setApiLocation] = useState()
   const randomLocation = Math.floor(Math.random() * 126)
 
-  let { Data } = useApiCall(`https://rickandmortyapi.com/api/location/${Apilocation ? Apilocation : randomLocation}`, Apilocation)
-
+  const { Data } = useApiCall(`https://rickandmortyapi.com/api/location/${Apilocation || randomLocation}`, Apilocation)
 
   const handleChange = (e) => {
     setLocation(e.target.value)
   }
 
-  let handleLocation = (e) => {
+  const handleLocation = (e) => {
     e.preventDefault()
     setApiLocation(location)
     console.log(Apilocation)
   }
-  return (Data ?
-    <div className="min-h-screen bg-gray-50 dark:bg-slate-800 ">
+  return (Data
+    ? <div className="min-h-screen bg-gray-50 dark:bg-slate-800 ">
       <div className='' >
         <Hero handleLocation={handleLocation} handleChange={handleChange} />
         <Location Data={Data} />
@@ -35,7 +34,8 @@ function App() {
           </div>
         </section>
       </div>
-    </div> : <div class=" mt-96 min-h-screen text-center">
+    </div>
+    : <div className=" mt-96 min-h-screen text-center">
       <div role="status">
         <svg className="inline mr-2 w-8 h-8 text-gray-200 animate-spin dark:text-gray-600 fill-blue-600" viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z" fill="currentColor" />
