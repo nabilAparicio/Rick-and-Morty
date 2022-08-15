@@ -22,7 +22,7 @@ function App () {
     console.log(Apilocation)
   }
   return (Data
-    ? <div className="min-h-screen bg-gray-50 dark:bg-slate-800 ">
+    ? <div className="min-h-screen bg-gray-50 dark:bg-gradient-to-b dark:from-slate-700 dark:to-slate-900 ">
       <div className='' >
         <Hero handleLocation={handleLocation} handleChange={handleChange} />
         <Location Data={Data} />
